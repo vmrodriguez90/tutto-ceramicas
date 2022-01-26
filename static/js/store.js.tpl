@@ -1104,6 +1104,7 @@ $(document).ready(function(){
     function changeVariant(variant){
         $(".js-product-detail .js-shipping-calculator-response").hide();
         $("#shipping-variant-id").val(variant.id);
+
         var parent = $("body");
         if (variant.element){
             parent = $(variant.element);
@@ -1255,7 +1256,6 @@ $(document).ready(function(){
     {# Show and hide labels on product variant change. Also recalculates discount percentage #}
 
     $(document).on("change", ".js-variation-option", function(e) {
-
         var $parent = $(this).closest(".js-product-variants");
         var $variants_group = $(this).closest(".js-product-variants-group");
         var $quickshop_parent_wrapper = $(this).closest(".js-quickshop-container");
@@ -1517,10 +1517,62 @@ $(document).ready(function(){
         var productButttonWidth = $(".js-addtocart-placeholder-inline").prev(".js-addtocart").innerWidth();
 
     {% endif %}
-
+    
+    
     {% if template == 'product' %}
 
         {# /* // Product mobile variants */ #}
+
+       
+        {# CHANGE MADE BY: victormanuelrodriguez90@gmail.com  #}
+        {# Quantity by Square Meters #}
+        {% set SQUARE_METERS_LABEL = "M2 x Caja" %}
+        {% set has_square_meters = false %}
+        {% set square_meters = "" %}
+        {% for variant in product.variations %}
+            {% if variant.name == SQUARE_METERS_LABEL %}
+                {% set has_square_meters = true %}
+                {% set square_meters = variant.options[0].id %}
+            {% endif %}
+        {% endfor %}
+
+        {% if has_square_meters %}                
+            $(document).on('click.squaremeters', '.square-meters-container .btn.calculate-boxes', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                var meters = "{{ square_meters }}";
+                var quantity = $('#squarequantity').val();
+                var total = Math.ceil(Number(quantity)/Number(meters));
+                console.log(`Square Meters: ${meters} - Quantity: ${quantity} equals ${ total } }`);
+                $('#quantity').val(total);
+            });
+
+            $(document).on('keydown.squaremeters', '#squarequantity', function(e) {
+                var key = e.which ? e.which : e.keyCode;
+                var enterKey = 13;
+                if (key === enterKey) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    var meters = "{{ square_meters }}";
+                    var quantity = $('#squarequantity').val();
+                    var total = Math.ceil(Number(quantity)/Number(meters));
+                    console.log(`Square Meters: ${meters} - Quantity: ${quantity} equals ${ total }`);
+                    $('#quantity').val(total);
+                }
+            });
+
+            $(document).on('change.squaremeters', '#quantity', function(e) {
+                e.stopPropagation();
+                var meters = "{{ square_meters }}";
+                var quantity = $('#quantity').val();
+                var total = Math.floor(Number(quantity)*Number(meters));
+                console.log(`Square Meters: ${meters} - Quantity: ${quantity} equals ${ total }`);
+                $('#squarequantity').val(total);
+            });
+        {% endif %}
+        {# CHANGE MADE BY: victormanuelrodriguez90@gmail.com  #}
+
+        
 
         $(document).on("click", ".js-mobile-vars-btn", function(e) {
           $(this).next(".js-mobile-vars-panel").removeClass('js-var-panel modal-xs-right-out').addClass('js-var-panel modal-xs-right-in');
@@ -1688,7 +1740,7 @@ $(document).ready(function(){
                 $('.js-product-buy-container').on('affix-top.bs.affix', function(){
                     $(".js-product-buy-container").removeClass("cta-move-up");
                 });
-            }
+            }    
         });
 
         {# /* // Mobile zoom */ #}
@@ -1721,8 +1773,6 @@ $(document).ready(function(){
             e.preventDefault();
             LS.closeMobileZoom(150);
         });
-
-
 
     {% endif %}
 

@@ -2,6 +2,19 @@
 {% set price_discount_percentage = ((product.compare_at_price) - (product.price)) * 100 / (product.compare_at_price) %}
 {% endif %}
 
+{# CHANGE MADE BY: victormanuelrodriguez90@gmail.com  #}
+{# Quantity by Square Meters #}
+{% set SQUARE_METERS_LABEL = "M2 x Caja" %}
+{% set has_square_meters = false %}
+{% set square_meters = "" %}
+{% for variant in product.variations %}
+    {% if variant.name == SQUARE_METERS_LABEL %}
+        {% set has_square_meters = true %}
+        {% set square_meters = variant.options[0].id %}
+    {% endif %}
+{% endfor %}
+{# CHANGE MADE BY: victormanuelrodriguez90@gmail.com  #}
+
 {% set has_multiple_slides = product.images_count > 1 or product.video_url %}
 
 <div class="row-fluid container-wide producto container-xs m-section-half">
@@ -124,6 +137,7 @@
                                         {% if product.compare_at_price %}
                                             {{ product.compare_at_price | money }}
                                         {% endif %}
+                                        1234
                                       </span>
                                     </span>
                                     <span class="price product-price js-price-display" id="price_display" {% if not product.display_price %}style="display:none;"{% endif %}>
@@ -247,20 +261,19 @@
                         {% if product.available and product.display_price %}
                             {# CHANGE MADE BY: victormanuelrodriguez90@gmail.com  #}
                             {# Quantity by Square Meters #}
-                            {% for variant in product.variations %}
-                                {% if variant.name == "M2 x Caja" %}
-                                    <div class="square-meters-container">
-                                        <label class="variant-label">
-                                            Metros² que necesitas cubrir:
-                                        </label>
-                                        <input id="squarequantity" class="spinner quantity-input" value="1" type="number" name="squarequantity" min="1" />
-                                        <a href="#" class="btn btn-primary calculate-boxes" data-component-value="{{ variant.options[0].id }}">
-                                            Calcular
-                                        </a>
-                                    </div >
-                                {% endif %}
-                            {% endfor %}
+                            {% if has_square_meters == true %}
+                                <div class="square-meters-container">
+                                    <label class="variant-label">
+                                        Metros² que necesitas cubrir:
+                                    </label>
+                                    <input id="squarequantity" class="spinner quantity-input" value="1" type="number" name="squarequantity" min="1" />
+                                    <a href="#" class="btn btn-primary calculate-boxes">
+                                        Calcular
+                                    </a>
+                                </div >
+                            {% endif %}
                             {# CHANGE MADE BY: victormanuelrodriguez90@gmail.com  #}
+
                             <div class="js-product-quantity-container row-fluid quantity-container {% if settings.shipping_calculator_product_page and not product.free_shipping %}border-bottom-none-xs m-bottom-none{% endif %}">
                                 <div class="quantity span3" data-component="product.adding-amount">
                                     <label for="quantity" class="quantity-label">
