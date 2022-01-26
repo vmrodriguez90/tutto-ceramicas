@@ -245,6 +245,22 @@
                             </div>
                         {% endif %}
                         {% if product.available and product.display_price %}
+                            {# CHANGE MADE BY: victormanuelrodriguez90@gmail.com  #}
+                            {# Quantity by Square Meters #}
+                            {% for variant in product.variations %}
+                                {% if variant.name == "M2 x Caja" %}
+                                    <div class="square-meters-container">
+                                        <label class="variant-label">
+                                            Metros² que necesitas cubrir:
+                                        </label>
+                                        <input id="squarequantity" class="spinner quantity-input" value="1" type="number" name="squarequantity" min="1" />
+                                        <a href="#" class="btn btn-primary calculate-boxes" data-component-value="{{ variant.options[0].id }}">
+                                            Calcular
+                                        </a>
+                                    </div >
+                                {% endif %}
+                            {% endfor %}
+                            {# CHANGE MADE BY: victormanuelrodriguez90@gmail.com  #}
                             <div class="js-product-quantity-container row-fluid quantity-container {% if settings.shipping_calculator_product_page and not product.free_shipping %}border-bottom-none-xs m-bottom-none{% endif %}">
                                 <div class="quantity span3" data-component="product.adding-amount">
                                     <label for="quantity" class="quantity-label">

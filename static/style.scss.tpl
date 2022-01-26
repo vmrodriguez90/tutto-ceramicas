@@ -513,21 +513,27 @@ select {
     }
 }
 
-.quantity-container{
+.quantity-container, .square-meters-container {
   margin-bottom: 20px;
-  .quantity{
+  .quantity {
     &-label{
       float: left;
       font-size: 14px;
       text-transform: uppercase;
     }
-    input.quantity-input{
+    input.quantity-input  {
+      margin-top: 2px;
+    }
+  }
+  input.quantity-input {
       width: 70px;
       border: 1px solid #ABABAB;
       height: 25px;
-      margin-top: 2px;
       padding-left: 7px;
-    }
+  }
+  .calculate-boxes {
+    font-size: 14px;
+    line-height: 14px;
   }
 }
 
