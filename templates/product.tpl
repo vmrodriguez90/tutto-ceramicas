@@ -7,10 +7,12 @@
 {% set SQUARE_METERS_LABEL = "M2 x Caja" %}
 {% set has_square_meters = false %}
 {% set square_meters = "" %}
+{% set product_price_per_meter = "" %}
 {% for variant in product.variations %}
     {% if variant.name == SQUARE_METERS_LABEL %}
         {% set has_square_meters = true %}
         {% set square_meters = variant.options[0].id %}
+        {% set product_price_per_meter = product.price / square_meters %}
     {% endif %}
 {% endfor %}
 {# CHANGE MADE BY: victormanuelrodriguez90@gmail.com  #}
@@ -132,19 +134,39 @@
                                     <input class="js-promotional-parameter" type="hidden" value="{{product.promotional_offer.parameters.percent}}">
                                 {% endif %}
                                 <div class="price product-price-container m-top-half text-left-xs m-bottom-xs m-bottom-half">
+                                    {% if has_square_meters %}
+                                        <div class="per-m2-container">
+                                            <span class="price-compare per-m2">
+                                                <span id="compare_price_display" class="js-compare-price-display price-compare h4 p-right-quarter" {% if not product.compare_at_price or not product.display_price %}style="display:none;"{% endif %}>
+                                                    {% if product.compare_at_price %}
+                                                        {{ (product.compare_at_price / square_meters) | money }}
+                                                    {% endif %}
+                                                </span>
+                                            </span>
+                                            <span class="price per-m2 product-price js-price-display" id="price_display" {% if not product.display_price %}style="display:none;"{% endif %}>
+                                                {% if product.display_price %}
+                                                    {{ product_price_per_meter | money }} m²
+                                                {% endif %}
+                                            </span>
+                                        </div>
+                                    {% endif %}
                                     <span class="price-compare">
                                         <span id="compare_price_display" class="js-compare-price-display price-compare h4 p-right-quarter" {% if not product.compare_at_price or not product.display_price %}style="display:none;"{% endif %}>
                                         {% if product.compare_at_price %}
                                             {{ product.compare_at_price | money }}
                                         {% endif %}
-                                        1234
                                       </span>
                                     </span>
+                                  
                                     <span class="price product-price js-price-display" id="price_display" {% if not product.display_price %}style="display:none;"{% endif %}>
                                         {% if product.display_price %}
                                             {{ product.price | money }}
                                         {% endif %}
+                                        {% if has_square_meters %}
+                                            por caja
+                                        {% endif %}
                                     </span>
+                                   
                                 </div>
                             </div>
                         </div>
