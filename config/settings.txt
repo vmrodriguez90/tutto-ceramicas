@@ -9,7 +9,7 @@ Colores de tu marca
 	palettes
 		palettes
 			palette_1
-				button_bg = #C3A343
+				button_bg = #91230d
 				background_color = #FFFFFF
 				footer_text = #000000
 				nav_text = #535353

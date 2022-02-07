@@ -1243,7 +1243,7 @@ color: #fff;
 }
 
 .product-price.per-m2 {
-  color: #C3A343;
+  color: #91230d;
 }
 .product-fixed-info{
   display: none;
