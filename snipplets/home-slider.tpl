@@ -15,9 +15,16 @@
                     {% for slide in slider %}
                         <div class="swiper-slide slide-container">
                             {% if not slide.link is empty %}
-                            <a href="{{ slide.link }}">
+                            <a href="{{ slide.link | setting_url }}">
                             {% endif %}
-                                <img data-sizes="auto" src="{{ slide.image | static_url | settings_image_url('tiny') }}" data-srcset='{{ slide.image | static_url | settings_image_url('large') }} 480w, {{ slide.image | static_url | settings_image_url('huge') }} 640w, {{ slide.image | static_url | settings_image_url('original') }} 1024w, {{ slide.image | static_url | settings_image_url('1080p') }} 1920w' class="swiper-lazy blur-up-huge slide-img" alt="{{ "Carrusel" | translate }} {{ store.name }}"/>
+                                <img
+                                    {% if slide.width and slide.height %} width="{{ slide.width }}" height="{{ slide.height }}" {% endif %}
+                                    data-sizes="auto"
+                                    src="{{ slide.image | static_url | settings_image_url('tiny') }}"
+                                    data-srcset='{{ slide.image | static_url | settings_image_url('large') }} 480w, {{ slide.image | static_url | settings_image_url('huge') }} 640w, {{ slide.image | static_url | settings_image_url('original') }} 1024w, {{ slide.image | static_url | settings_image_url('1080p') }} 1920w'
+                                    class="swiper-lazy blur-up-huge slide-img"
+                                    alt="{{ "Carrusel" | translate }} {{ store.name }}"
+                                />
                             {% if not slide.link is empty %}
                             </a>
                             {% endif %}

@@ -1,6 +1,6 @@
 <div class="js-mobile-nav js-search-container mobile-nav row-fluid" data-store="head-mobile">
     <div class="js-mobile-first-row mobile-nav-first-row">      
-        <div class="js-modal-open js-toggle-hamburger-panel btn-hamburger text-center visible-phone pull-left" data-toggle="#nav-hamburger">
+        <div class="js-modal-open js-toggle-hamburger-panel btn-hamburger text-center visible-phone pull-left" data-toggle="#nav-hamburger" data-component="menu-button">
             <div class="mobile-nav-first-row-icon p-relative svg-icon-text">
                 {% include "snipplets/svg/hamburger.tpl" %}
                 {% if store.country == 'AR' and template == 'home' %}

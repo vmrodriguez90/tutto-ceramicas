@@ -513,27 +513,21 @@ select {
     }
 }
 
-.quantity-container, .square-meters-container {
+.quantity-container{
   margin-bottom: 20px;
-  .quantity {
+  .quantity{
     &-label{
       float: left;
       font-size: 14px;
       text-transform: uppercase;
     }
-    input.quantity-input  {
-      margin-top: 2px;
-    }
-  }
-  input.quantity-input {
+    input.quantity-input{
       width: 70px;
       border: 1px solid #ABABAB;
       height: 25px;
+      margin-top: 2px;
       padding-left: 7px;
-  }
-  .calculate-boxes {
-    font-size: 14px;
-    line-height: 14px;
+    }
   }
 }
 
@@ -1469,6 +1463,16 @@ textarea{
 }
 
 {# /* // Grid item */ #}
+
+.label {
+  padding: 5px;
+  font-size: 14px;
+  font-weight: normal;
+  text-align: center;
+  text-transform: uppercase;
+  border-radius: 0;
+  white-space: normal;
+}
 
 .item:hover,{
   @include text-decoration-none();

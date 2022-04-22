@@ -1090,10 +1090,12 @@ color: #fff;
   display: inline;
   vertical-align: bottom;
 }
-.label-primary{
+.label-primary,
+.label-accent{
   position: absolute;
   top: 5px;
   left: 0;
+  z-index: 2;
   width: auto;
   margin: 0;
   text-align: center;
@@ -1224,26 +1226,12 @@ color: #fff;
 .product-price-container {
   margin-top: 10px;
 }
-.product-price {
+.product-price{
   font-size:32px;
   margin-top: 10px;
   position:relative;
   font-weight: bold;
   line-height: 30px;
-}
-.per-m2 {
-  display: block;
-  margin-top: 0;
-}
-.per-m2-container {
-  margin-bottom: 10px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-end;
-}
-
-.product-price.per-m2 {
-  color: #91230d;
 }
 .product-fixed-info{
   display: none;

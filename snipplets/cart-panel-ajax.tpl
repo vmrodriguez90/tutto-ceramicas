@@ -1,4 +1,4 @@
-<form action="{{ store.cart_url }}" method="post" id="ajax-cart-details" class="js-ajax-cart-panel js-fullscreen-modal ajax-cart-container modal-right modal-xs modal-xs-right modal-xs-right-out" style="display: none;" data-store="cart-form">
+<form action="{{ store.cart_url }}" method="post" id="ajax-cart-details" class="js-ajax-cart-panel js-fullscreen-modal ajax-cart-container modal-right modal-xs modal-xs-right modal-xs-right-out" style="display: none;" data-store="cart-form" data-component = "cart">
 	{# Define contitions to show shipping calculator and store branches on cart #}
 
 	{% set show_calculator_on_cart = settings.shipping_calculator_cart_page and store.has_shipping %}
@@ -48,7 +48,7 @@
 				</div>
 
 				{# Cart panel empty #}
-				<div class="emptyCart js-empty-ajax-cart text-center alert clear-both" {% if cart.items_count > 0 %}style="display:none;"{% endif %}>
+				<div class="emptyCart js-empty-ajax-cart text-center alert clear-both" data-component="cart.empty-message" {% if cart.items_count > 0 %}style="display:none;" {% endif %} >
 	                {{ "El carrito de compras está vacío." | translate }}
 				</div>
 
@@ -200,7 +200,7 @@
 					{# Cart panel CTA #}
 	                {% set cart_total = (settings.cart_minimum_value * 100) %}
 					<div class="js-ajax-cart-submit pull-right full-width-xs" {{ not cart.checkout_enabled ? 'style="display:none"' }} id="ajax-cart-submit-div">
-						<input class="pull-right full-width-xs btn btn-primary" type="submit" name="go_to_checkout" data-component="checkout-button" value="{{ 'Iniciar Compra' | translate }}"/>
+						<input class="pull-right full-width-xs btn btn-primary" type="submit" name="go_to_checkout" data-component="cart.checkout-button" value="{{ 'Iniciar Compra' | translate }}"/>
 					</div>
 
 					{# Cart panel continue buying mobile #}

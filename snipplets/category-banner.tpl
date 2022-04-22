@@ -17,7 +17,7 @@
 <div class="row-fluid">
     <div class="js-category-banner banner m-top-none">
         {% if not has_category_images and settings.banner_products_url != '' %}
-        <a href="{{ settings.banner_products_url }}">
+        <a href="{{ settings.banner_products_url | setting_url }}">
         {% endif %}
             <img class="lazyautosizes lazyload blur-up-big" src="{{ category_images['small'] }}" data-srcset="{{ category_images['large'] }} 480w, {{ category_images['huge'] }} 640w, {{ category_images['original'] }} 1024w, {{ category_images['1080p'] }} 1920w" data-sizes="auto" alt="{{ 'Banner de la categoría' | translate }} {{ category.name }}"/>
         {% if not has_category_images and settings.banner_products_url != '' %}

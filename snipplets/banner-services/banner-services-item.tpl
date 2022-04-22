@@ -1,7 +1,7 @@
 <div class="service-item-container span{{ 12 / num_banners_services }} has-{{ num_banners_services }}-banner{% if num_banners_services > 1 %}s{% endif %} text-center swiper-slide border-none-xs">
     <div class="js-service-item service-item">
         {% if banner_services_url %}
-        <a href="{{ banner_services_url }}">
+        <a href="{{ banner_services_url | setting_url }}">
         {% endif %}
         <div class="span2">
         	<div class="service-icon svg-icon-text d-inline-block  m-right-half m-none-xs m-bottom-half-xs">

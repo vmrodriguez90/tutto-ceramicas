@@ -435,7 +435,6 @@
             </div>
         </div>
     {% endif %}
-    VICTOR CAPOOOOO
 </div>
 
 

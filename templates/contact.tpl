@@ -9,7 +9,7 @@
         <div class="row-fluid visible-when-content-ready">
             <div class="banner">
                 {% if settings.foto_contacto_url != '' %}
-                <a href="{{ settings.foto_contacto_url }}">
+                <a href="{{ settings.foto_contacto_url | setting_url }}">
                 {% endif %}
                     <img class="lazyautosizes lazyload blur-up-big" src="{{ "foto-contacto.jpg" | static_url | settings_image_url('small')}}" data-srcset='{{ "foto-contacto.jpg" | static_url | settings_image_url('large') }} 480w, {{ "foto-contacto.jpg" | static_url | settings_image_url('huge') }} 640w, {{ "foto-contacto.jpg" | static_url | settings_image_url('original') }} 1024w, {{ "foto-contacto.jpg" | static_url | settings_image_url('1080p') }} 1920w' data-sizes="auto" />
                 {% if settings.foto_contacto_url != '' %}

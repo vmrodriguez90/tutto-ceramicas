@@ -50,8 +50,8 @@
 		</div>
 
 		{# Cart item mobile subtotal #}
-		<div class="visible-phone cart-item-subtotal h6-xs pull-right">
-			<span class="js-cart-item-subtotal" data-line-item-id="{{ item.id }}">{{ item.subtotal | money }}</span>
+		<div class="visible-phone cart-item-subtotal h6-xs pull-right" data-component="line-item.subtotal">
+			<span class="js-cart-item-subtotal" data-line-item-id="{{ item.id }}" data-component="subtotal.value" data-component-value="{{item.subtotal}}">{{ item.subtotal | money }} </span>
 		</div>
 	</div>
 

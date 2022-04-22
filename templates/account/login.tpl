@@ -37,6 +37,12 @@
                 <div class="js-resend-validation-error alert alert-danger" style="display:none">
                     <p>{{ "No pudimos enviar el email, intentalo de nuevo en unos minutos." | translate }}</p>
                 </div>
+                <div class="js-too-many-attempts alert alert-danger m-bottom-none" style="display:none">
+                    <p class="m-all-half">
+                        {{ 'Superaste la cantidad de intentos permitidos. <br> Volvé a probar en' | translate }}
+                        <span class="js-too-many-attempts-countdown"></span>
+                    </p>
+                </div>
             </div>
         </div>
     </div>
@@ -57,11 +63,11 @@
             {% endif %}
             <div class="form-group">
                 <label class="form-label" for="email">{{ 'Email' | translate }}</label>
-                <input autocorrect="off" autocapitalize="off" type="email" name="email" value="{{ result.email }}" class="form-control {% if result.invalid %} input-error {% endif %}" placeholder="{{ 'ej.: tunombre@email.com' | translate }}"/>
+                <input autocorrect="off" autocapitalize="off" type="email" name="email" value="{{ result.email }}" class="form-control {% if result.invalid %} input-error {% endif %}" placeholder="{{ 'ej.: tunombre@email.com' | translate }}" required />
             </div>
             <div class="form-group m-bottom-none">
                 <label class="form-label" for="password">{{ 'Contraseña' | translate }}</label>
-                <input type="password" name="password" autocomplete="off" class="js-password-input form-control {% if result.invalid %} input-error{% endif %}"/>
+                <input type="password" name="password" autocomplete="off" class="js-password-input form-control {% if result.invalid %} input-error{% endif %}" required />
                 <a aria-label="{{ 'Ver contraseña' | translate }}" class="js-password-view btn form-toggle-eye">
                     <span class="js-eye-open" style="display: none;">
                         {% include "snipplets/svg/eye.tpl" with {fa_custom_class: "svg-inline--fa svg-icon-primary"} %}

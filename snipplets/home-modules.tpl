@@ -26,7 +26,7 @@
         <div class="span6{% if module_align == 'right' %} pull-right{% endif %}">
             <div class="module-image">
                 {% if module_url %}
-                    <a href="{{ module_url }}"{% if module_title %} alt="{{ module_title }}" title="{{ module_title }}" {% else %} title="{{ 'Módulo de' | translate }} {{ store.name }}" alt="{{ 'Módulo de' | translate }} {{ store.name }}"{% endif %}>
+                    <a href="{{ module_url | setting_url }}"{% if module_title %} alt="{{ module_title }}" title="{{ module_title }}" {% else %} title="{{ 'Módulo de' | translate }} {{ store.name }}" alt="{{ 'Módulo de' | translate }} {{ store.name }}"{% endif %}>
                 {% endif %}
                 {% if module_image %}
                     <img class="lazyautosizes lazyload fade-in" src="{{ 'images/empty-placeholder.png' | static_url }}" data-srcset='{{ "#{module}.jpg" | static_url | settings_image_url('large') }} 480w, {{ "#{module}.jpg" | static_url | settings_image_url('huge') }} 640w' data-sizes="auto" {% if module_title %} alt="{{ module_title }}" {% else %} alt="{{ 'Módulo de' | translate }} {{ store.name }}"{% endif %} data-expand="-10"/>
@@ -50,7 +50,7 @@
                         <div class="module-text-paragraph m-bottom p-bottom">{{ module_text }}</div>
                     {% endif %}
                     {% if module_url and module_button_text %}
-                        <a href="{{ module_url }}"{% if module_title %} alt="{{ module_title }}" title="{{ module_title }}"{% endif %}>
+                        <a href="{{ module_url | setting_url }}"{% if module_title %} alt="{{ module_title }}" title="{{ module_title }}"{% endif %}>
                             <div class="btn btn-primary btn-small">{{ module_button_text }}</div>
                         </a>
                     {% endif %}

@@ -13,7 +13,7 @@
                 </div>
             </div>
         {% else %}  
-            <a class="js-modal-open text-uppercase mobile-nav-tab " data-toggle="#nav-hamburger">
+            <a class="js-modal-open text-uppercase mobile-nav-tab " data-toggle="#nav-hamburger" data-component="menu-button">
                 <span class="mobile-nav-tab-text p-relative">
                     {{ 'Menú' | translate }}
                     {% if store.country == 'AR' and template == 'home' %}

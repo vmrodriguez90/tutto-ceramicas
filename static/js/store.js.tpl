@@ -321,7 +321,7 @@ $(document).ready(function(){
         {# Show quick login messages if it is returning customer #}
 
         setTimeout(function(){
-            if ($.cookie('returning_customer') && LS.shouldShowQuickLoginNotification()) {
+            if (cookieService.get('returning_customer') && LS.shouldShowQuickLoginNotification()) {
                 {% if store.country == 'AR' %}
                     $(".js-quick-login-badge").fadeIn();
                     $(".js-login-tooltip").show();
@@ -1104,7 +1104,6 @@ $(document).ready(function(){
     function changeVariant(variant){
         $(".js-product-detail .js-shipping-calculator-response").hide();
         $("#shipping-variant-id").val(variant.id);
-
         var parent = $("body");
         if (variant.element){
             parent = $(variant.element);
@@ -1256,6 +1255,7 @@ $(document).ready(function(){
     {# Show and hide labels on product variant change. Also recalculates discount percentage #}
 
     $(document).on("change", ".js-variation-option", function(e) {
+
         var $parent = $(this).closest(".js-product-variants");
         var $variants_group = $(this).closest(".js-product-variants-group");
         var $quickshop_parent_wrapper = $(this).closest(".js-quickshop-container");
@@ -1517,8 +1517,7 @@ $(document).ready(function(){
         var productButttonWidth = $(".js-addtocart-placeholder-inline").prev(".js-addtocart").innerWidth();
 
     {% endif %}
-    
-    
+
     {% if template == 'product' %}
 
         {# /* // Product mobile variants */ #}
@@ -1740,7 +1739,7 @@ $(document).ready(function(){
                 $('.js-product-buy-container').on('affix-top.bs.affix', function(){
                     $(".js-product-buy-container").removeClass("cta-move-up");
                 });
-            }    
+            }
         });
 
         {# /* // Mobile zoom */ #}
@@ -1773,6 +1772,8 @@ $(document).ready(function(){
             e.preventDefault();
             LS.closeMobileZoom(150);
         });
+
+
 
     {% endif %}
 
@@ -1852,7 +1853,6 @@ $(document).ready(function(){
         var $productButtonText = $productButtonPlaceholder.find(".js-addtocart-text");
         var $productButtonAdding = $productButtonPlaceholder.find(".js-addtocart-adding");
         var $productButtonSuccess = $productButtonPlaceholder.find(".js-addtocart-success");
-        var productButttonHeight = $productButton.height();
 
         {# Define if event comes from quickshop or product page #}
 
@@ -1885,7 +1885,6 @@ $(document).ready(function(){
 
             $productButton.hide();
             $productButtonPlaceholder.show().addClass("active");
-            $productButtonPlaceholder.height(productButttonHeight);
             if (isQuickShop) {
                 $productButtonPlaceholder.width(productButttonWidth-37);
             }
@@ -1967,8 +1966,8 @@ $(document).ready(function(){
                         setTimeout(function(){
                             $(".js-alert-added-to-cart").show().addClass("notification-visible").removeClass("notification-hidden");
                         },500);
-                        if (typeof $.cookie('first_product_added_successfully') === 'undefined') {
-                            $.cookie('first_product_added_successfully', true, { path: '/', expires: 7 }); 
+                        if (!cookieService.get('first_product_added_successfully')) {
+                            cookieService.set('first_product_added_successfully', 1, 7 );
                         } else{
                             setTimeout(function(){
                                 $(".js-alert-added-to-cart").removeClass("notification-visible").addClass("notification-hidden");
@@ -1999,8 +1998,8 @@ $(document).ready(function(){
                         zipcode_on_addtocart = $("#product-shipping-container .js-shipping-input").val();
                         $("#cart-shipping-container .js-shipping-input").val(zipcode_on_addtocart);
                         $(".js-shipping-calculator-current-zip").text(zipcode_on_addtocart);
-                    } else if (!!$.cookie('calculator_zipcode')){
-                        var zipcode_from_cookie = $.cookie("calculator_zipcode");
+                    } else if (cookieService.get('calculator_zipcode')){
+                        var zipcode_from_cookie = cookieService.get('calculator_zipcode');
                         $('.js-shipping-input').val(zipcode_from_cookie);
                         $(".js-shipping-calculator-current-zip").text(zipcode_from_cookie);
                     }
@@ -2076,7 +2075,7 @@ $(document).ready(function(){
         {# Clear cart notification cookie after consumers continues to checkout #}
 
         $('form[action="{{ store.cart_url | escape('js') }}"]').submit(function() {
-            $.removeCookie('first_product_added_successfully', { path: '/' });
+            cookieService.remove('first_product_added_successfully');
         });
 
     {% endif %}
@@ -2110,11 +2109,11 @@ $(document).ready(function(){
 
     {# Apply zipcode saved by cookie if there is no zipcode saved on cart from backend #}
 
-    if (!!$.cookie('calculator_zipcode')) {
+    if (cookieService.get('calculator_zipcode')) {
 
         {# If there is a cookie saved based on previous calcualtion, add it to the shipping input to trigger automatic calculation #}
 
-        var zipcode_from_cookie = $.cookie("calculator_zipcode");
+        var zipcode_from_cookie = cookieService.get('calculator_zipcode');
 
         {% if settings.ajax_cart %}
 
@@ -2295,7 +2294,7 @@ $(document).ready(function(){
         {# /* // Pitch login instead of zipcode helper if is returning customer */ #}
 
         {% if not customer %}
-            if ($.cookie('returning_customer') && LS.shouldShowQuickLoginNotification()) {
+            if (cookieService.get('returning_customer') && LS.shouldShowQuickLoginNotification()) {
                 $('.js-product-quick-login').show();
             } else {
                 $('.js-shipping-zipcode-help').show();
@@ -2360,7 +2359,7 @@ $(document).ready(function(){
     });
 
     {% if store.country == 'AR' and template == 'home' %}
-        if ($.cookie('returning_customer') && LS.shouldShowQuickLoginNotification()) {
+        if (cookieService.get('returning_customer') && LS.shouldShowQuickLoginNotification()) {
             {# Make login link toggle quick login modal #}
             
             $(".js-login").removeAttr("href").attr({"href" : "#quick-login" , "data-toggle" : "modal"}).addClass("js-trigger-modal-zindex-top");

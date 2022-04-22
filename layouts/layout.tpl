@@ -231,12 +231,6 @@
                        {% snipplet "defaults/show_help_footer.tpl" %}
                     {% else %}
                         <div class="row-fluid">
-                            <div class="span12 visible-phone pull-left-xs">
-                                <h4 class="footer-title font-body text-uppercase">{{ settings.news_message }}</h4>
-                                {% include "snipplets/newsletter.tpl" with {'mobile': true} %}
-                            </div>
-                        </div>
-                        <div class="row-fluid">
                             <div class="span{{ has_shipping_payment_logos ? 2 : 4 }} pull-left-xs">
                                 <div class="col-foot">
                                     <h4 class="footer-title font-body text-uppercase">{{ "Navegación" | translate }}</h4>
@@ -308,9 +302,9 @@
                                     {% endfor %}
                                 </div>
                                 {% endif %}
-                                 <div class="col-foot hidden-phone">
+                                 <div class="col-foot">
                                     <h4 class="footer-title font-body text-uppercase">{{ settings.news_message }}</h4>
-                                    {% include "snipplets/newsletter.tpl" with {'mobile': false} %}
+                                    {% include "snipplets/newsletter.tpl" %}
                                 </div>
                             </div>
                             {% if store.afip or ebit or settings.custom_seal_code or ("seal_img.jpg" | has_custom_image) %}
@@ -333,7 +327,7 @@
                                             {% if "seal_img.jpg" | has_custom_image %}
                                                 <div class="custom-seal pull-left m-top-quarter m-bottom-quarter clear-both">
                                                     {% if settings.seal_url != '' %}
-                                                        <a href="{{ settings.seal_url }}" target="_blank">
+                                                        <a href="{{ settings.seal_url | setting_url }}" target="_blank">
                                                     {% endif %}
                                                         <img src="{{ 'images/empty-placeholder.png' | static_url }}" data-src="{{ "seal_img.jpg" | static_url }}" class="lazyload custom-seal-img" alt="{{ 'Sello de' | translate }} {{ store.name }}" />
                                                     {% if settings.seal_url != '' %}

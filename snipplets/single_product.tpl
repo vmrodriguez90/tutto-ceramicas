@@ -48,7 +48,7 @@
                     </div>
                     <div data-store="product-item-labels">
                         {% if product.promotional_offer %}
-                            <div class="item-label item-label-offer product-label label-primary{% if product.promotional_offer.script.is_discount_for_quantity and sections.new.products | find(product.id) %} label-max-width{% endif %}" {% if not product.display_price %}style="display:none;"{% endif %} data-store="product-item-promotion-label">
+                            <div class="item-label item-label-offer product-label label-primary label label-accent{% if product.promotional_offer.script.is_discount_for_quantity and sections.new.products | find(product.id) %} label-max-width{% endif %}" {% if not product.display_price %}style="display:none;"{% endif %} data-store="product-item-promotion-label">
                                 <span>
                                 {% if product.promotional_offer.script.is_percentage_off %}
                                     {{ product.promotional_offer.parameters.percent * 100 }}% OFF
@@ -65,7 +65,7 @@
                                 </span>
                             </div>
                         {% else %}
-                            <div class="js-offer-label item-label item-label-offer product-label label-primary" {% if not product.compare_at_price %} style="display: none;" {% endif %} data-store="product-item-offer-label">
+                            <div class="js-offer-label item-label item-label-offer product-label label-primary label label-accent" {% if not product.compare_at_price %} style="display: none;" {% endif %} data-store="product-item-offer-label">
                                 <span class="js-offer-percentage">{{ price_discount_percentage |round }}</span>
                                 % OFF
                             </div>
@@ -156,17 +156,17 @@
                 {% if settings.quick_view and product.available and product.display_price %}
                     <div class="item-actions m-top-half">
                         {% if product.variations %}
-                            <a data-toggle="modal" data-target="#quickshop-modal" data-modal-url="modal-fullscreen-quickshop" class="js-quickshop-modal-open {% if slide_item %}js-quickshop-slide{% endif %} js-fullscreen-modal-open btn btn-primary full-width-xs btn-small btn-smallest font-small-extra p-right p-left p-right-half-xs p-left-half-xs" title="{{ 'Compra rápida de' | translate }} {{ product.name }}" aria-label="{{ 'Compra rápida de' | translate }} {{ product.name }}" >{{ 'Agregar al carrito' | translate }}</a>
+                            <a data-toggle="modal" data-target="#quickshop-modal" data-modal-url="modal-fullscreen-quickshop" class="js-quickshop-modal-open {% if slide_item %}js-quickshop-slide{% endif %} js-fullscreen-modal-open btn btn-primary full-width-xs btn-small btn-smallest font-small-extra p-right p-left p-right-half-xs p-left-half-xs m-auto" title="{{ 'Compra rápida de' | translate }} {{ product.name }}" aria-label="{{ 'Compra rápida de' | translate }} {{ product.name }}" >{{ 'Agregar al carrito' | translate }}</a>
                         {% else %}
                             <form class="js-product-form" method="post" action="{{ store.cart_url }}">
                             <input type="hidden" name="add_to_cart" value="{{product.id}}" />
                             {% set state = store.is_catalog ? 'catalog' : (product.available ? product.display_price ? 'cart' : 'contact' : 'nostock') %}
                             {% set texts = {'cart': "Agregar al carrito", 'contact': "Consultar precio", 'nostock': "Sin stock", 'catalog': "Consultar"} %}
 
-                            <input type="submit" class="js-addtocart js-prod-submit-form btn btn-primary full-width-xs btn-small btn-smallest font-small-extra p-right p-left p-right-half-xs p-left-half-xs {{ state }}" value="{{ texts[state] | translate }}" {% if state == 'nostock' %}disabled{% endif %} data-component="product-list-item.add-to-cart" data-component-value="{{product.id}}"/>
+                            <input type="submit" class="js-addtocart js-prod-submit-form btn btn-primary full-width-xs btn-small btn-smallest font-small-extra p-right p-left p-right-half-xs p-left-half-xs {{ state }} m-auto" value="{{ texts[state] | translate }}" {% if state == 'nostock' %}disabled{% endif %} data-component="product-list-item.add-to-cart" data-component-value="{{product.id}}"/>
 
                             {# Fake add to cart CTA visible during add to cart event #}
-                            {% include 'snipplets/placeholders/button-placeholder.tpl' with {custom_class: "js-addtocart-placeholder-inline full-width-xs btn-small btn-smallest font-small-extra p-right p-left p-right-half-xs p-left-half-xs"} %}
+                            {% include 'snipplets/placeholders/button-placeholder.tpl' with {custom_class: "js-addtocart-placeholder-inline full-width-xs btn-small btn-smallest font-small-extra p-right p-left p-right-half-xs p-left-half-xs m-auto"} %}
 
                         </form>
                         {% endif %}

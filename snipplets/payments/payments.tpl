@@ -36,7 +36,7 @@
                                     <a href="#installment_{{ custom_payment.code }}" class="tab-link" data-toggle="tab">
                                         {{ custom_payment.name | upper }}
                                         {% if custom_payment.discount > 0 %}
-                                            <span class="label label-primary label-inline m-left-quarter"><strong>{{ custom_payment.discount }}% {{'OFF' | translate }}</strong></span>
+                                            <span class="label label-primary label-inline m-left-quarter font-small"><strong>{{ custom_payment.discount }}% {{'OFF' | translate }}</strong></span>
                                         {% endif %}
                                     </a>
                                 </li>

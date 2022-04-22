@@ -6,7 +6,7 @@
         <div class="span{% if theme_logo_position == 'left' %}6{% else %}12{% endif %} text-center font-small">
            	{% if settings.ad_bar and settings.ad_text %}
            	    {% if settings.ad_url %}
-			        <a href="{{ settings.ad_url }}">
+			        <a href="{{ settings.ad_url | setting_url }}">
 				{% endif %}  
 		        	{% if settings.ad_text %}
 		        		{{ settings.ad_text }}

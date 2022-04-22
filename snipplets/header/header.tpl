@@ -71,7 +71,7 @@
                     </div>
                 </div>
             </div>
-            <ul class="js-desktop-nav desktop-nav hidden-phone m-top-half m-bottom-half" data-store="navigation">
+            <ul class="js-desktop-nav desktop-nav hidden-phone m-top-half m-bottom-half" data-store="navigation" data-component="menu">
                 {% snipplet "navigation/navigation.tpl" %}
             </ul>
         </header>

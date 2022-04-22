@@ -1284,7 +1284,8 @@ input.input-shipping {
     color: $main-foreground;
     border: 1px solid rgba($main-foreground, .3);
 }
-.label-primary {
+.label-primary,
+.label-accent {
     background: $btn-primary-background;
     color: $btn-foreground;
 }

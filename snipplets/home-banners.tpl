@@ -25,7 +25,7 @@
             <div class="span{% if num_banners == 1 %}6 offset3{% elseif num_banners == 2 %}6{% elseif num_banners == 3 %}4{% endif %}">
                 <div class="textbanner {% if banner_align == 'center' %} text-center{% elseif banner_align == 'right' %} text-right{% else %}{% endif %} placeholder-container">
                     {% if banner_url %}
-                        <a class="textbanner-link" href="{{ banner_url }}"{% if banner_title %} alt="{{ banner_title }}" title="{{ banner_title }}"{% endif %}>
+                        <a class="textbanner-link" href="{{ banner_url | setting_url }}"{% if banner_title %} alt="{{ banner_title }}" title="{{ banner_title }}"{% endif %}>
                     {% endif %}
                    
                     <div class="textbanner-image{% if has_banner_text %} overlay{% endif %} {% if banner_color == 'dark' %} light{% endif %}">

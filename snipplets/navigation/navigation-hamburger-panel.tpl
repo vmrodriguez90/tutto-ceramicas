@@ -4,7 +4,7 @@
             <span class="js-modal-close btn-hamburger-close p-absolute">
                 {% include "snipplets/svg/times.tpl" with {fa_custom_class: "svg-inline--fa btn-hamburger-close-icon pull-right p-all-half svg-icon-text"} %}
             </span>
-            <ul class="list-items" data-store="navigation">
+            <ul class="list-items" data-store="navigation" data-component="menu">
                 {% snipplet "navigation/navigation-hamburger-list.tpl" %}
             </ul>
             {% if languages | length > 1 %}

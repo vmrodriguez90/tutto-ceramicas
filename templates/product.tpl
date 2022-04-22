@@ -53,7 +53,7 @@
                                         <div class="js-labels-group">
                                     {% endif %}
                                         <div data-store="product-item-labels">
-                                            <div class="product-label product-detail-label h6 label-primary {% if not product.promotional_offer %} js-offer-label {% endif %}" {% if not (product.compare_at_price or product.promotional_offer) or not product.display_price %}style="display:none;"{% endif %} data-store="product-item-{% if product.compare_at_price %}offer{% else %}promotion{% endif %}-label">
+                                            <div class="product-label product-detail-label h6 label-primary label label-accent {% if not product.promotional_offer %} js-offer-label {% endif %}" {% if not (product.compare_at_price or product.promotional_offer) or not product.display_price %}style="display:none;"{% endif %} data-store="product-item-{% if product.compare_at_price %}offer{% else %}promotion{% endif %}-label">
                                                 <span>
                                                   {% if product.promotional_offer %}
                                                       {% if product.promotional_offer.script.is_percentage_off %}
@@ -157,7 +157,6 @@
                                         {% endif %}
                                       </span>
                                     </span>
-                                  
                                     <span class="price product-price js-price-display" id="price_display" {% if not product.display_price %}style="display:none;"{% endif %}>
                                         {% if product.display_price %}
                                             {{ product.price | money }}
@@ -166,7 +165,6 @@
                                             por caja
                                         {% endif %}
                                     </span>
-                                   
                                 </div>
                             </div>
                         </div>

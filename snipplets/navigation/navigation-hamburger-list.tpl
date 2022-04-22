@@ -11,7 +11,7 @@
 					</div>
 					<ul class="js-pages-accordion list-subitems hamburger-panel-accordion" style="display:none;">
 						{% if item.isCategory  %}
-							<li class="hamburger-panel-item item-with-subitems">
+							<li class="hamburger-panel-item item-with-subitems" data-component="menu.item">
 								<a class="hamburger-panel-link" href="{{ item.url }}">
 									<strong>
 										{% if item.isRootCategory %}
@@ -27,14 +27,14 @@
 					</ul>
 				</li>
 			{% else %}
-				<li>
+				<li data-component="menu.item">
 					<a class="hamburger-panel-link weight-normal" href="{{ item.url }}">{{ item.name }}</a>
 				</li>
 			{% endif %}
 		{% endif %}
 	{% else %}
 		{% if item.subitems %}
-			<li class="item-with-subitems p-relative">
+			<li class="item-with-subitems p-relative" data-component="menu.item">
 				<div class="js-hamburger-panel-toggle-accordion">
 					<a class="js-toggle-page-accordion hamburger-panel-link p-right-double weight-normal">
 						<span class="m-right-quarter">{{ item.name }}</span>
@@ -59,7 +59,7 @@
 				</ul>
 			</li>
 		{% else %}
-			 <li>
+			 <li data-component="menu.item">
 				<a class="hamburger-panel-link weight-normal" href="{{ item.url }}">
 					{{ item.name }}</a>
 			 </li>

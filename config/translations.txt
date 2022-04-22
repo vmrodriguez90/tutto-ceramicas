@@ -1361,6 +1361,11 @@ pt "Não foi possível enviar o e-mail, tente novamente em alguns minutos."
 en "We couldn’t send you the email, please try again in a few minutes."
 es_mx "No pudimos enviar el correo electrónico, inténtalo de nuevo en unos minutos."
 
+es "Superaste la cantidad de intentos permitidos. <br> Volvé a probar en"
+pt "Você excedeu o número de tentativas permitidas. <br> Tente novamente em"
+en "You have exceeded the number of attempts allowed. <br> Try again in"
+es_mx "Superaste la cantidad de intentos permitidos. <br> Vuelve a probar en"
+
 --- --- Register
 
 es "Crear cuenta"
@@ -2728,95 +2733,71 @@ en "Primary color"
 es_mx "Color principal"
 
 es "Color secundario"
-pt "Cor secundário"
+pt "Cor secundária"
 en "Secondary color"
 es_mx "Color secundario"
-
-es "Color de los textos"
-pt "Cor de textos"
-en "Text color"
-es_mx "Color de los textos"
 
 es "Colores de tu marca"
 pt "Cores da sua marca"
 es_mx "Colores de tu marca"
 
-es "Probá nuestras combinaciones"
-pt "Experimente nossas combinações"
-es_mx "Prueba nuestras combinaciones"
+es "Combinaciones predeterminadas"
+pt "Combinações pré-definidas"
+en "Default combinations"
+es_mx "Combinaciones predeterminadas"
 
-es "<a target='_blank' href='http://ayuda.tiendanube.com/diseno/como-cambio-los-colores-de-mi-diseno/?utm_source=admin-desktop&utm_medium=feature-page&utm_campaign=help'>¿Cómo cambio los colores de mi diseño?</a>"
-pt ""
-es_mx "<a target='_blank' href='http://ayuda.tiendanube.com/diseno/como-cambio-los-colores-de-mi-diseno/?utm_source=admin-desktop&utm_medium=feature-page&utm_campaign=help'>¿Cómo cambio los colores de mi diseño?</a>"
+es "Ideales para restablecer los colores por defecto del diseño."
+pt "Ideais para quando você quiser resgatar as cores padrão do layout."
+en "Ideal for restoring the default colors of the design."
+es_mx "Ideales para restablecer los colores por defecto del diseño."
 
-es "Configuración avanzada"
-pt "Configuração avançada"
-es_mx "Configuración avanzada"
+es "<a target='_blank' href='https://ayuda.tiendanube.com/es_ES/124497-colores-de-tu-marca/como-cambiar-los-colores-de-mi-diseno/?utm_source=admin-desktop&utm_medium=feature-page&utm_campaign=help'>¿Cómo cambio los colores de mi diseño?</a>"
+pt "<a target='_blank' href='https://atendimento.nuvemshop.com.br/layout/personalizacao-basica-do-layout/como-alterar-as-cores-do-meu-layout/?utm_source=admin-desktop&utm_medium=feature-page&utm_campaign=help'>Como alterar as cores do meu layout?</a>"
+es_mx "<a target='_blank' href='https://ayuda.tiendanube.com/es_ES/124497-colores-de-tu-marca/como-cambiar-los-colores-de-mi-diseno/?utm_source=admin-desktop&utm_medium=feature-page&utm_campaign=help'>¿Cómo cambio los colores de mi diseño?</a>"
 
 es "Color de fondo"
 pt "Cor de fundo"
 es_mx "Color de fondo"
 
-es "Texto de contacto"
-pt "Texto de contato"
-es_mx "Texto de contacto"
+es "Color de links"
+pt "Cor dos links"
+es_mx "Color de links"
 
-es "Texto en la barra de navegación"
-pt "Texto na barra de navegação"
-es_mx "Texto en la barra de navegación"
+es "Color de links al pasar el mouse"
+pt "Cor dos links ao passar o mouse"
+es_mx "Color de links al pasar el mouse"
 
-es "Texto en la barra de navegación (posando el mouse)"
-pt "Texto na barra de navegação (passando o mouse)"
-es_mx "Texto en la barra de navegación (posando el mouse)"
+es "<div class='js-color-description'>Exclusivo para visualizaciones en computadoras.</div>"
+pt "<div class='js-color-description'>Exclusiva para visualizações em computadores.</div>"
+es_mx "<div class='js-color-description'>Exclusivo para visualizaciones en computadoras.</div>"
 
-es "Fondo de la barra de navegación"
-pt "Fundo da barra de navegação"
-es_mx "Fondo de la barra de navegación"
+es "Color de bordes"
+pt "Cor das bordas"
+es_mx "Color de bordes"
 
-es "Bordes en la barra de navegación"
-pt "Bordas da barra de navegação"
-es_mx "Bordes de la barra de navegación"
+es "Títulos de páginas"
+pt "Títulos das páginas"
+es_mx "Títulos de páginas"
 
-es "Fondo del resumen del carrito en la barra de navegación y botones"
-pt "Fundo do detalhe do carrinho na barra de navegação e botões"
-es_mx "Fondo del resumen del carrito en la barra de navegación y botones"
+es "Contraste general"
+pt "Contraste geral"
+es_mx "Contraste general"
 
-es "Fondo de los botones (posando el mouse)"
-pt "Fundo dos botões (passando o mouse)"
-es_mx "Fondo de los botones (posando el mouse)"
+es "Para facilitar la lectura, asegurate de que los colores contrasten entre sí."
+pt "Para facilitar a leitura, certifique-se de que as cores contrastem entre si."
+es_mx "Para facilitar la lectura, asegurate de que los colores contrasten entre sí."
 
-es "Texto del título de las páginas"
-pt "Texto do título das páginas"
-es_mx "Texto del título de las páginas"
+es "Color de fondo del botón principal"
+pt "Cor de fundo do botão principal"
+es_mx "Color de fondo del botón principal"
 
-es "Fondo del título de las páginas"
-pt "Fundo do título das páginas"
-es_mx "Fondo del título de las páginas"
+es "Color de texto del botón principal"
+pt "Cor do texto do botão principal"
+es_mx "Color de texto del botón principal"
 
-es "Fondo del botón de compra"
-pt "Fundo do botão de compra"
-es_mx "Fondo del botón de compra"
-
-es "Fondo de los botones secundarios y del resumen del carrito"
-pt "Fundo dos botões secundários e do resumo do carrinho"
-es_mx "Fondo de los botones secundarios y del resumen del carrito"
-
-es "Bordes del contenido de las páginas"
-pt "Bordas do conteúdo das páginas"
-es_mx "Bordes del contenido de las páginas"
-
-es "Fondo del footer"
-pt "Fundo do rodapé"
-es_mx "Fondo del footer"
-
-es "Texto del footer"
-pt "Texto do rodapé"
-es_mx "Texto del footer"
-
-es "Resto de los textos"
-pt "Resto dos textos"
-es_mx "Resto de los textos"
-
+es "Color de botones secundarios"
+pt "Cor dos botões secundários"
+es_mx "Color de botones secundarios"
 
 --- --- Tipography
 
@@ -2917,6 +2898,14 @@ es "Color de fondo del encabezado"
 pt "Cor de fundo do cabeçalho"
 es_mx "Color de fondo del encabezado"
 
+es "Color de fondo del contraste general"
+pt "Cor de fundo do contraste geral"
+es_mx "Color de fondo del contraste general"
+
+es "Color de texto del contraste general"
+pt "Cor de texto do contraste geral"
+es_mx "Color de texto del contraste general"
+
 es "Claro"
 pt "Claro"
 es_mx "Claro"
@@ -2927,7 +2916,7 @@ es_mx "Oscuro"
 
 es "Color de textos"
 pt "Cor dos textos"
-en "Text color"
+en "Texts color"
 es_mx "Color de textos"
 
 es "Transparente"
@@ -3533,17 +3522,17 @@ pt "Mostrar o botão 'Ver mais produtos' no carrinho de compras"
 en "Show 'View more products' button on the shopping cart"
 es_mx "Mostrar el botón 'Ver más productos' en el carrito de compras"
 
-es "¿Cuánto es lo mínimo que pueden gastar tus clientes?"
-pt "Qual o valor mínimo que seus clientes podem gastar?"
-es_mx "¿Cuánto es lo mínimo que quieres que gasten tus clientes?"
+es "¿Cuál es el monto mínimo que tus clientes deben gastar?"
+pt "Qual o valor mínimo que seus clientes devem gastar?"
+es_mx "¿Cuál es el monto mínimo que tus clientes deben gastar?"
 
 es "Ej.: 3000"
 pt "Ej.: 300"
 es_mx "Ej.: 800"
 
-es "Solo tenés que ingresar números"
-pt "Digite apenas números"
-es_mx "Solo tienes que ingresar números"
+es "<span class='legend'>Ingresá solamente números</span>"
+pt "<span class='legend'>Insira apenas números</span>"
+es_mx "<span class='legend'>Ingresa solamente números</span>"
 
 es "Valor mínimo de compra"
 pt "valor mínimo de compra"
@@ -3645,7 +3634,7 @@ pt "Para webdesigners"
 es_mx "Para diseñadores web"
 
 es "<a target='_blank' href='https://ayuda.tiendanube.com/es_ES/123225-edicion-avanzada-de-css/como-editar-el-diseno-con-codigo-css'>¿Cómo edito el código CSS de mi tienda?</a>"
-pt "<a target='_blank' href='https://atendimento.nuvemshop.com.br/12344-personalizacao-avancada-do-layout/como-editar-o-codigo-css-da-minha-loja'>Como editar o código CSS da minha loja?</a>"
+pt "<a target='_blank' href='https://atendimento.nuvemshop.com.br/personalizacao-avancada-do-layout/como-inserir-um-codigo-css'>Como editar o código CSS da minha loja?</a>"
 es_mx "<a target='_blank' href='https://ayuda.tiendanube.com/es_ES/123225-edicion-avanzada-de-css/como-editar-el-diseno-con-codigo-css'>¿Cómo edito el código CSS de mi tienda?</a>"
 
 

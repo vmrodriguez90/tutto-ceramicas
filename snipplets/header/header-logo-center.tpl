@@ -17,7 +17,7 @@
                         </div>
                     {% endif %}
                     {% if not settings.tab_menu or ( settings.tab_menu and settings.search_fix ) %} 
-                    <div class="js-modal-open text-center visible-phone pull-left" data-toggle="#nav-hamburger">
+                    <div class="js-modal-open text-center visible-phone pull-left" data-toggle="#nav-hamburger" data-component="menu-button">
                         <div class="mobile-nav-first-row-icon p-relative svg-icon-text">
                             {% include "snipplets/svg/bars-regular.tpl" %} {{ 'Menú' | translate }}
                             {% if store.country == 'AR' and template == 'home' %}
@@ -83,7 +83,7 @@
                 </div>
 
             </div>    
-            <ul class="js-desktop-nav desktop-nav hidden-phone font-small" data-store="navigation">
+            <ul class="js-desktop-nav desktop-nav hidden-phone font-small" data-store="navigation" data-component="menu">
                 {% snipplet "navigation/navigation.tpl" %}
             </ul>
         </header>
