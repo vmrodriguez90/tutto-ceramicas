@@ -120,8 +120,8 @@
                                     <input class="js-promotional-parameter" type="hidden" value="{{product.promotional_offer.parameters.percent}}">
                                 {% endif %}
                                 <div data-store="product-item-price-{{ product.id }}">
-                                    <span class="js-price-display item-price weight-strong text-primary" {% if not product.display_price %}class="hidden"{% endif %}>
                                     {# CHANGE MADE BY: victormanuelrodriguez90@gmail.com  #}
+                                    <span class="js-price-display item-price weight-strong text-primary" {% if not product.display_price %}class="hidden"{% endif %}>
                                     {% if not has_square_meters and product.display_price %}
                                         {{ product.price | money }}
                                     {% endif %}
@@ -139,6 +139,7 @@
                                         {% endif %}
                                         </span>
                                     </span>
+                                    {# CHANGE MADE BY: victormanuelrodriguez90@gmail.com  #}
                                 </div>
                                 {% set product_can_show_installments = product.show_installments and product.display_price and product.get_max_installments.installment > 1 %}
                                 {% if product_can_show_installments %}
