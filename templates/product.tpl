@@ -2,6 +2,21 @@
 {% set price_discount_percentage = ((product.compare_at_price) - (product.price)) * 100 / (product.compare_at_price) %}
 {% endif %}
 
+{# CHANGE MADE BY: victormanuelrodriguez90@gmail.com  #}
+{# Quantity by Square Meters #}
+{% set SQUARE_METERS_LABEL = "M2 x Caja" %}
+{% set has_square_meters = false %}
+{% set square_meters = "" %}
+{% set product_price_per_meter = "" %}
+{% for variant in product.variations %}
+    {% if variant.name == SQUARE_METERS_LABEL %}
+        {% set has_square_meters = true %}
+        {% set square_meters = variant.options[0].id %}
+        {% set product_price_per_meter = product.price / square_meters %}
+    {% endif %}
+{% endfor %}
+{# CHANGE MADE BY: victormanuelrodriguez90@gmail.com  #}
+
 {% set has_multiple_slides = product.images_count > 1 or product.video_url %}
 
 <div class="row-fluid">
@@ -126,10 +141,33 @@
                                     <input class="js-promotional-parameter" type="hidden" value="{{product.promotional_offer.parameters.percent}}">
                                 {% endif %}
                                 <div class="product-price-container" data-store="product-price-{{ product.id }}">
+                                    {# CHANGE MADE BY: victormanuelrodriguez90@gmail.com  #}
+                                    {% if has_square_meters %}
+                                    <div class="per-m2-container">
+                                        <span class="price-compare per-m2">
+                                            <span id="compare_price_display" class="js-compare-price-display price-compare h4 p-right-quarter" {% if not product.compare_at_price or not product.display_price %}style="display:none;"{% endif %}>
+                                                {% if product.compare_at_price %}
+                                                    {{ (product.compare_at_price / square_meters) | money }}
+                                                {% endif %}
+                                            </span>
+                                        </span>
+                                        <span class="price per-m2 product-price js-price-display" id="price_display" {% if not product.display_price %}style="display:none;"{% endif %}>
+                                            {% if product.display_price %}
+                                                {{ product_price_per_meter | money }} x m²
+                                            {% endif %}
+                                        </span>
+                                    </div>
+                                    {% endif %}
+                                    {# CHANGE MADE BY: victormanuelrodriguez90@gmail.com  #}
                                     <span class="js-price-display product-price" id="price_display" {% if not product.display_price %}style="display:none;"{% endif %}>
                                         {% if product.display_price %}
                                             {{ product.price | money }}
                                         {% endif %}
+                                        {# CHANGE MADE BY: victormanuelrodriguez90@gmail.com  #}
+                                        {% if has_square_meters %}
+                                            por caja
+                                        {% endif %}
+                                        {# CHANGE MADE BY: victormanuelrodriguez90@gmail.com  #}
                                     </span>
                                     <span id="compare_price_display" class="js-compare-price-display product-price-compare" {% if not product.compare_at_price or not product.display_price %}style="display:none;"{% endif %}>
                                         {% if product.compare_at_price %}
