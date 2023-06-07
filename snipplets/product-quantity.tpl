@@ -17,21 +17,23 @@
     {# Quantity by Square Meters #}
     {% if has_square_meters == true %}
         <div class="square-meters-container">
-            <label class="variant-label">
+            <label class="variant-label quantity-label ">
                 Metros² que necesitas cubrir:
             </label>
-            <input id="squarequantity" class="spinner quantity-input" value="1" type="number" name="squarequantity" min="1" />
+            <input id="squarequantity" class="spinner quantity-input spinner quantity-input js-product-quantity js-quantity-input form-control form-control-secondary form-control-big quantity-input" value="1" type="number" name="squarequantity" min="1" />
             <a href="#" class="btn btn-primary calculate-boxes">
-                Calcular
+                Calcular cajas
             </a>
         </div >
     {% endif %}
     {# CHANGE MADE BY: victormanuelrodriguez90@gmail.com  #}
-
+    <div>
     <div class="js-product-quantity-container {% if quickshop and inside_variants %}span6 col-xs-custom col-xs-6-custom p-left-quarter-xs{% endif %}{% if not quickshop %}span3{% endif %} {% if not inside_variants %}m-bottom{% endif %}">
         <div class="js-quantity form-group form-group-{% if quickshop %}small{% else %}big m-bottom-xs{% endif %} quantity {% if product.show_installments and not product.variations and not quickshop %} border-top-none-xs {% endif %} {% if quickshop and inside_variants %}m-none p-none-xs{% endif %}">
             <label class="quantity-label {% if quickshop %}font-small-extra font-small-xs m-top-none-xs{% endif %}">
-                {{ "Cantidad" | translate }}
+                {# CHANGE MADE BY: victormanuelrodriguez90@gmail.com  #}
+                {{ "Cantidad" | translate }} de cajas
+                {# CHANGE MADE BY: victormanuelrodriguez90@gmail.com  #}
             </label>
             <div class="quantity-input-container {% if quickshop %}full-width-xs{% endif %}">
                <div class="quantity-nav quantity-nav-left {% if not quickshop %}visible-phone{% endif %}">
@@ -52,5 +54,6 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
 {% endif %}

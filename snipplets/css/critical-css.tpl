@@ -1156,7 +1156,7 @@ input.desktop-search-submit {
   margin-top: 0;
 }
 .per-m2-container {
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   display: flex;
   justify-content: flex-start;
   align-items: flex-end;
