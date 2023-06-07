@@ -1052,6 +1052,54 @@ LS.ready.then(function() {
 
         {# /* // Change variant */ #}
 
+        {# CHANGE MADE BY: victormanuelrodriguez90@gmail.com  #}
+        {# Quantity by Square Meters #}
+        {% set SQUARE_METERS_LABEL = "M2 x Caja" %}
+        {% set has_square_meters = false %}
+        {% set square_meters = "" %}
+        {% for variant in product.variations %}
+            {% if variant.name == SQUARE_METERS_LABEL %}
+                {% set has_square_meters = true %}
+                {% set square_meters = variant.options[0].id %}
+            {% endif %}
+        {% endfor %}
+
+        {% if has_square_meters %}                
+            $(document).on('click.squaremeters', '.square-meters-container .btn.calculate-boxes', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                var meters = "{{ square_meters }}";
+                var quantity = $('#squarequantity').val();
+                var total = Math.ceil(Number(quantity)/Number(meters));
+                console.log(`Square Meters: ${meters} - Quantity: ${quantity} equals ${ total } }`);
+                $('#quantity').val(total);
+            });
+
+            $(document).on('keydown.squaremeters', '#squarequantity', function(e) {
+                var key = e.which ? e.which : e.keyCode;
+                var enterKey = 13;
+                if (key === enterKey) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    var meters = "{{ square_meters }}";
+                    var quantity = $('#squarequantity').val();
+                    var total = Math.ceil(Number(quantity)/Number(meters));
+                    console.log(`Square Meters: ${meters} - Quantity: ${quantity} equals ${ total }`);
+                    $('#quantity').val(total);
+                }
+            });
+
+            $(document).on('change.squaremeters', '#quantity', function(e) {
+                e.stopPropagation();
+                var meters = "{{ square_meters }}";
+                var quantity = $('#quantity').val();
+                var total = Math.floor(Number(quantity)*Number(meters));
+                console.log(`Square Meters: ${meters} - Quantity: ${quantity} equals ${ total }`);
+                $('#squarequantity').val(total);
+            });
+        {% endif %}
+        {# CHANGE MADE BY: victormanuelrodriguez90@gmail.com  #}
+
         function changeVariant(variant){
             $(".js-product-detail .js-shipping-calculator-response").hide();
             $("#shipping-variant-id").val(variant.id);

@@ -1147,6 +1147,28 @@ input.desktop-search-submit {
 .desktop-zoom-big {
   opacity: 0;
 }
+/*============================================================================
+  #CHANGE MADE BY: victormanuelrodriguez90@gmail.com 
+==============================================================================*/
+
+.per-m2 {
+  display: block;
+  margin-top: 0;
+}
+.per-m2-container {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+.product-price.per-m2 {
+  color: #C3A343;
+}
+/*============================================================================
+  #CHANGE MADE BY: victormanuelrodriguez90@gmail.com 
+==============================================================================*/
+
 
 /*============================================================================
   #Cart detail
