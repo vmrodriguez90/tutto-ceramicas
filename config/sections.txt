@@ -1,0 +1,15 @@
+primary
+	name = Destacados
+	description = Los productos aparecen destacados en la página de inicio (hasta 40 productos).
+
+recent
+	name = Recientes
+	description = Los productos aparecen como recientes en la página de inicio (hasta 40 productos).
+
+offer
+	name = En oferta
+	description = Los productos aparecen en oferta en la página de inicio (hasta 40 productos).
+
+coming
+	name = Próximamente
+	description = Los productos aparecen como próximamente en la página de inicio (hasta 40 productos).
