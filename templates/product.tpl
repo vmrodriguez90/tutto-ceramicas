@@ -272,6 +272,26 @@
                             {% if product.variations %}
                                 {% include "snipplets/variants.tpl" with {'quickshop': false} %}
                             {% endif %}
+                            <div>
+                           
+                            {# CHANGE MADE BY: victormanuelrodriguez90@gmail.com  #}
+                            {# Quantity by Square Meters #}
+                            {% if product.available and product.display_price and has_square_meters %}
+                                <div class="square-meters-container">
+                                    <label class="variant-label quantity-label ">
+                                        Metros² que necesitas cubrir:
+                                    </label>
+                                    <div class="sq-input-container">
+                                        <input id="squarequantity" class="spinner quantity-input spinner quantity-input js-product-quantity js-quantity-input form-control form-control-secondary form-control-big quantity-input" value="1" type="number" name="squarequantity" min="1" />
+                                        <a href="#" class="btn btn-primary calculate-boxes">
+                                            Calcular cajas
+                                        </a>
+                                    </div>
+                                </div >
+                            {% endif %}
+                            {# CHANGE MADE BY: victormanuelrodriguez90@gmail.com  #}
+
+                            </div>
                             <div class="row-fluid">
                                 {% include "snipplets/product-quantity.tpl" %}
                                 <div class="js-product-cta-container product-buy-container span9 {% if product.available and product.display_price %} m-top p-top-quarter {% endif %} m-bottom">

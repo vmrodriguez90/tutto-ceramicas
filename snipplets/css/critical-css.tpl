@@ -1165,6 +1165,19 @@ input.desktop-search-submit {
 .product-price.per-m2 {
   color: #C3A343;
 }
+.square-meters-container {
+  margin-bottom: 20px;
+}
+.square-meters-container .sq-input-container {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+.square-meters-container .sq-input-container input {
+  width: 100px;
+  margin-right: 30px;
+}
 /*============================================================================
   #CHANGE MADE BY: victormanuelrodriguez90@gmail.com 
 ==============================================================================*/
